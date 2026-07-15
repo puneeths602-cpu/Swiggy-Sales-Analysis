@@ -1,9 +1,9 @@
 SELECT * FROM Orders$
----•	What is the year of the earliest order?
+---â€¢	What is the year of the earliest order?
 SELECT
    YEAR(MIN('Order Date')) AS EarliestOrderYear
 FROM Orders;
------•	What are the total sales for each quarter of 2018? 2018 AS 2014
+-----â€¢	What are the total sales for each quarter of 2018? 2018 AS 2014
 SELECT
      QUARTER,(''Order Date') AS Quarter,
     SUM(Sales) AS TotalSales
@@ -11,7 +11,7 @@ FROM Orders
 WHERE YEAR('Order Date') = 2014
 GROUP BY QUARTER ('Order Date')
 ORDER BY  Quarter;
-	----•	How many orders were placed on the first day of each month in 2017?
+	----â€¢	How many orders were placed on the first day of each month in 2017?
 SELECT
     MONTH ('Order Date') AS Month,
     COUNT(*) AS NumberOfOrders
@@ -20,18 +20,18 @@ WHERE YEAR('Order Date') = 2017
  AND DAY('Order Date') = 1
 GROUP BY MONTH('Order Date')
 ORDER BY Month;
-	-----•	What is the difference in days between the earliest and latest order dates?
+	-----â€¢	What is the difference in days between the earliest and latest order dates?
 SELECT 
     DATEDIFF(MAX('Order Date'),MIN('Order Date')) AS Date_diffrence
 FROM Orders;
-	----•	What is the average order value for each day of the week?
+	----â€¢	What is the average order value for each day of the week?
 SELECT 
     DAYOFWEEK('Order Date') AS DayOfWeek,
     AVG('Value']) AS AverageOrderValue
 FROM Orders 
 GROUP BY DAYOFWEEK('Order Date')
 ORDER BY  DAYOFWEEK;
-	-------•	What are the total sales for orders placed in the month of July across all years?
+	-------â€¢	What are the total sales for orders placed in the month of July across all years?
 SELECT 
      YEAR('Order Date') As YEAR,
      SUM('Sales') AS TotalSales
@@ -39,7 +39,7 @@ FROM  Orders
 WHERE MONTH('Order Date') = 7
 GROUP BY YEAR('Order Date')
 ORDER BY YEAR;
-	--------•	Which month had the highest total sales in 2019? 2017
+	--------â€¢	Which month had the highest total sales in 2019? 2017
 SELECT 
     MONTH('Order Date') AS Month,
    SUM('Sales') AS TotalSales
@@ -47,27 +47,27 @@ FROM  Orders
 WHERE  YEAR('Order Date') = 2017 
 GROUP BY  MONTH('Order Date')
 ORDER BY  Totalsales DESC
-	----------------------•	How many orders were placed on weekends (Saturday and Sunday) in 2018?   2014
+	----------------------â€¢	How many orders were placed on weekends (Saturday and Sunday) in 2018?   2014
 SELECT 
      COUNT('Order ID') AS NumberOfWeekendOrders
 FROM Orders
 WHERE YEAR('Order Date') = 2014
 AND MONTH ('Order Date') IN (1, 7);
-	---------------•	What is the average order value for each quarter?
+	---------------â€¢	What is the average order value for each quarter?
 SELECT 
     QUARTER,('Order Date') AS Quarter,
     AVG('Sales') AS AverageOrderValue
 FROM  Orders
 GROUP BY QUARTER ('Order Date')
 ORDER BY Quater;
-------------------•	What is the earliest order date for each year?
+------------------â€¢	What is the earliest order date for each year?
 SELECT 
     YEAR('Order Date') AS Year,
     MIN('Order Date') AS EarliestOrderDate
 FROM  Orders
 GROUP BY YEAR('Order Date')
 ORDER BY Year;
-   ----customer wise total sale ,the total sale should be greater than average
+   ----customer wise total sale ,the total sale should be greaterÂ thanÂ average
 WITH CustomerSalesAs(
      SELECT
           CustomerID,
@@ -126,7 +126,7 @@ SELECT
    TotalRevenue
 FROM  ProductRevenue
 ORDER BY  TotalRevenue DESC
-OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;
+OFFSET 0 ROWS FETCH NEXTÂ 5Â ROWSÂ ONLY;
 
 ------list orders that ware placed and shiped with in the same month
 WITH OrdersSameMonth AS (
