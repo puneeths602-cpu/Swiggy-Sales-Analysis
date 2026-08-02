@@ -139,7 +139,7 @@ Swiggy-Sales-Analysis/
 │   ├── Customer Analysis.png
 │   ├── Delivery Analysis.png
 │   └── Executive Summary.png
-│
+│   |___Restaurant Analysis.png
 ├── README.md
 └── Swiggy_Sales_Analysis.pbix
 
